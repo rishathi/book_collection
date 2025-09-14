@@ -84,6 +84,8 @@ test:
 #
 production:
   <<: *default
-  database: book_collection1_production
-  username: book_collection1
-  password: <%= ENV["BOOK_COLLECTION1_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # database: book_collection1_production
+  # username: book_collection1
+  # password: <%= ENV["BOOK_COLLECTION1_DATABASE_PASSWORD"] %>
